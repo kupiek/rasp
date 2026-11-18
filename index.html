@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru" data-theme="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1221">
+  <meta name="description" content="Удобное расписание студентов Иркутского энергетического колледжа — группы, преподаватели и пары.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ИЭК · Студент">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>ИЭК · Расписание студента</title>
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none"><path d="m5 14 13-7 13 7-13 7-13-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M11 18.5v8c4 2.6 10 2.6 14 0v-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M31 15v11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <div><strong>ИЭК <span class="brand-divider">/</span> СТУДЕНТ</strong><small>Расписание занятий</small></div>
+      </div>
+      <button class="header-refresh" id="refresh" type="button" title="Проверить обновления" aria-label="Проверить обновления">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 9a7 7 0 0 1 12-2L20 12M4 12l2.5 5a7 7 0 0 0 12-2"/></svg>
+      </button>
+    </header>
+    <div class="sync-line" id="sync-status" role="status"><i></i><span>Получаем данные расписания…</span></div>
+    <main id="app" class="main" tabindex="-1" aria-live="polite">
+      <div class="initial-loader"><div class="loader-ring"></div><span>Загружаем расписание…</span></div>
+    </main>
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Основные разделы">
+      <button type="button" class="nav-button" data-page="teachers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7.5" r="3.5"/><path d="M5.5 21v-2.5a6.5 6.5 0 0 1 13 0V21"/></svg>
+        <span>Преподаватели</span>
+      </button>
+      <button type="button" class="nav-button is-current" data-page="home" aria-current="page">
+        <span class="nav-home-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3.5 10.5 12 3l8.5 7.5v10H3.5v-10Z" stroke-linejoin="round"/><path d="M9 20.5v-7h6v7"/></svg></span>
+        <span>Главная</span>
+      </button>
+      <button type="button" class="nav-button" data-page="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.4" fill="currentColor" stroke="none"/><circle cx="15" cy="17" r="2.4" fill="currentColor" stroke="none"/></svg>
+        <span>Настройки</span>
+      </button>
+    </nav>
+  </div>
+  <div id="overlay-root"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
